@@ -7,7 +7,7 @@
 `npm install file-dropper`
 ### Connection
 1. Import library in your file <br>
-`import {FileDropper} from "@clunesate/file-dropper";`
+`import {FileDropper} from "file-dropper";`
 2. Paste the component where you need it <br>
 `<FileDropper/>`
 
