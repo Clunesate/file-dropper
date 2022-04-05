@@ -1,7 +1,7 @@
 {
   "name": "@clunesate/file-dropper",
   "description": "File upload form",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Clunesate",
   "private": false,
   "license": "ISC",
