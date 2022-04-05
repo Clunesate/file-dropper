@@ -19,6 +19,8 @@ var _wrongFile = require("../images/wrong-file.svg");
 
 var _microsoftExcel = require("../images/microsoft-excel.svg");
 
+var _jsxRuntime = require("react/jsx-runtime");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FileDropper(_ref) {
@@ -92,43 +94,60 @@ function FileDropper(_ref) {
     }
   };
 
-  return /*#__PURE__*/React.createElement("div", {
-    className: 'uploader'
-  }, /*#__PURE__*/React.createElement("div", {
-    className: (0, _clsx.default)('uploader__block', {
-      'uploader__block_dragging': dragging
-    }),
-    onClick: () => document.getElementById('input-file-uploader').click(),
-    id: 'dropped-block'
-  }, /*#__PURE__*/React.createElement(_microsoftExcel.ReactComponent, {
-    width: 40,
-    height: 40,
-    fill: '#545454'
-  }), !selectedFile.name && !error && /*#__PURE__*/React.createElement("p", {
-    className: 'mt-3'
-  }, "\u0414\u043B\u044F \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 \u0444\u0430\u0439\u043B\u0430 \u043A\u043B\u0438\u043A\u043D\u0438\u0442\u0435 \u043D\u0430 \u0432\u044B\u0434\u0435\u043B\u0435\u043D\u043D\u0443\u044E \u043E\u0431\u043B\u0430\u0441\u0442\u044C \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u0441 \u0432\u0430\u0448\u0435\u0433\u043E \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430"), selectedFile.name && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "\u0418\u043C\u044F: ", selectedFile.name)), /*#__PURE__*/React.createElement("span", {
-    className: 'd-flex align-items-center justify-content-center mt-2'
-  }, /*#__PURE__*/React.createElement(_fileCheck.ReactComponent, {
-    width: 20,
-    height: 20,
-    fill: 'green'
-  }), /*#__PURE__*/React.createElement("p", {
-    className: 'ms-2'
-  }, /*#__PURE__*/React.createElement("b", null, "\u0412\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u0430\u0439\u043B")))), error && /*#__PURE__*/React.createElement("span", {
-    className: 'd-flex align-items-center justify-content-center mt-2'
-  }, /*#__PURE__*/React.createElement(_wrongFile.ReactComponent, {
-    width: 20,
-    height: 20,
-    fill: '#bb2d3b'
-  }), /*#__PURE__*/React.createElement("p", {
-    className: 'ms-2'
-  }, /*#__PURE__*/React.createElement("b", null, error)))), /*#__PURE__*/React.createElement("input", {
-    type: "file",
-    className: 'd-none',
-    id: 'input-file-uploader',
-    onChange: e => uploadPlan(e.target),
-    accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-  }));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: 'uploader',
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: (0, _clsx.default)('uploader__block', {
+        'uploader__block_dragging': dragging
+      }),
+      onClick: () => document.getElementById('input-file-uploader').click(),
+      id: 'dropped-block',
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_microsoftExcel.ReactComponent, {
+        width: 40,
+        height: 40,
+        fill: '#545454'
+      }), !selectedFile.name && !error && /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+        className: 'mt-3',
+        children: "\u0414\u043B\u044F \u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0438 \u0444\u0430\u0439\u043B\u0430 \u043A\u043B\u0438\u043A\u043D\u0438\u0442\u0435 \u043D\u0430 \u0432\u044B\u0434\u0435\u043B\u0435\u043D\u043D\u0443\u044E \u043E\u0431\u043B\u0430\u0441\u0442\u044C \u0438\u043B\u0438 \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u0441 \u0432\u0430\u0448\u0435\u0433\u043E \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0430"
+      }), selectedFile.name && /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("b", {
+            children: ["\u0418\u043C\u044F: ", selectedFile.name]
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
+          className: 'd-flex align-items-center justify-content-center mt-2',
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_fileCheck.ReactComponent, {
+            width: 20,
+            height: 20,
+            fill: 'green'
+          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+            className: 'ms-2',
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)("b", {
+              children: "\u0412\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u0430\u0439\u043B"
+            })
+          })]
+        })]
+      }), error && /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
+        className: 'd-flex align-items-center justify-content-center mt-2',
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_wrongFile.ReactComponent, {
+          width: 20,
+          height: 20,
+          fill: '#bb2d3b'
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          className: 'ms-2',
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("b", {
+            children: error
+          })
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+      type: "file",
+      className: 'd-none',
+      id: 'input-file-uploader',
+      onChange: e => uploadPlan(e.target),
+      accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+    })]
+  });
 }
 
 var _default = FileDropper;
