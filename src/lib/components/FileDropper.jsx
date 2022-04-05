@@ -6,7 +6,13 @@ import {ReactComponent as FileCheckSvg} from "../images/file-check.svg";
 import {ReactComponent as WrongFileSvg} from "../images/wrong-file.svg";
 import {ReactComponent as ExcelSvg} from "../images/microsoft-excel.svg";
 
-function FileDropper({callbackFile}) {
+function FileDropper({
+	 callbackFile,
+	 containerClasses = [],
+	 blockClasses = [],
+	 acceptFiles = '',
+	 fileSize = 104857600,
+}) {
 
 	const [dragging, setDragging] = useState(false);
 	const [error, setError] = useState('');
@@ -49,38 +55,31 @@ function FileDropper({callbackFile}) {
 		e.preventDefault()
 		e.stopPropagation()
 		if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-			uploadPlan(e.dataTransfer)
+			upload(e.dataTransfer)
 			e.dataTransfer.clearData()
 		}
 		setDragging(false)
 	}
 
-	const uploadPlan = (target) => {
+	const upload = (target) => {
 		const file = target?.files[0];
 
 		if (file) {
-			if (
-				file.type ===
-				'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
-				file.type === 'application/vnd.ms-excel' ||
-				file.type === 'text/csv'
-			) {
-				if (file.size > 104857600) {
-					setError('Максимально допустимый размер файла не более 100Мб');
-				} else {
+			if (acceptFiles.includes(file.type)) {
+				if (file.size > fileSize)
+					setError(`Максимально допустимый размер файла не более ${fileSize}`);
+				else {
 					setSelectedFile(file);
 					callbackFile(file);
 				}
-			} else {
-				setError('Не верный формат файла')
-			}
+			} else setError('Не верный формат файла')
 		}
 	}
 
 	return (
-		<div className={'uploader'}>
+		<div className={clsx('uploader', [...containerClasses])}>
 			<div
-				className={clsx('uploader__block', {'uploader__block_dragging': dragging})}
+				className={clsx('uploader__block', {'uploader__block_dragging': dragging}, [...blockClasses])}
 				onClick={() => document.getElementById('input-file-uploader').click()}
 				id={'dropped-block'}
 			>
@@ -112,9 +111,8 @@ function FileDropper({callbackFile}) {
 				type="file"
 				className={'d-none'}
 				id={'input-file-uploader'}
-				onChange={(e) => uploadPlan(e.target)}
-				accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
-                    application/vnd.ms-excel"
+				onChange={(e) => upload(e.target)}
+				accept={acceptFiles}
 			/>
 		</div>
 	);
