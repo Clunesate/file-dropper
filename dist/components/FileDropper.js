@@ -11,11 +11,13 @@ var _react = require("react");
 
 var _clsx = _interopRequireDefault(require("clsx"));
 
-var _fileCheck = require("../../images/file-check.svg");
+require("../scss/app.scss");
 
-var _wrongFile = require("../../images/wrong-file.svg");
+var _fileCheck = require("../images/file-check.svg");
 
-var _microsoftExcel = require("../../images/microsoft-excel.svg");
+var _wrongFile = require("../images/wrong-file.svg");
+
+var _microsoftExcel = require("../images/microsoft-excel.svg");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
