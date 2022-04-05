@@ -1,22 +1,24 @@
 {
-  "name": "@Clunesate/file-dropper",
+  "name": "@clunesate/file-dropper",
   "description": "File upload form",
   "version": "0.1.0",
   "author": "Clunesate",
   "private": false,
   "license": "ISC",
+  "main": "build/index.html",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
-    "clsx": "^1.1.1",
-    "node-sass": "^7.0.1",
     "react": "^18.0.0",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
+  },
+  "repository": {
+    "url": "https://github.com/Clunesate/file-dropper"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -41,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "clsx": "^1.1.1",
+    "node-sass": "^7.0.1"
   }
 }
