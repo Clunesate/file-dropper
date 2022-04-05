@@ -1,5 +1,5 @@
 {
-  "name": "@clunesate/file-dropper",
+  "name": "file-dropper",
   "description": "File upload form",
   "version": "1.0.0",
   "author": "Clunesate",
@@ -21,9 +21,6 @@
   },
   "repository": {
     "url": "https://github.com/Clunesate/file-dropper"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "start": "react-scripts start",
