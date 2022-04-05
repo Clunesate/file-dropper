@@ -7,6 +7,8 @@ exports.default = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
+require("core-js/modules/es.string.includes.js");
+
 var _react = require("react");
 
 var _clsx = _interopRequireDefault(require("clsx"));
@@ -25,7 +27,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function FileDropper(_ref) {
   let {
-    callbackFile
+    callbackFile,
+    containerClasses = [],
+    blockClasses = [],
+    acceptFiles = '',
+    fileSize = 104857600
   } = _ref;
   const [dragging, setDragging] = (0, _react.useState)(false);
   const [error, setError] = (0, _react.useState)('');
@@ -70,36 +76,32 @@ function FileDropper(_ref) {
     e.stopPropagation();
 
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      uploadPlan(e.dataTransfer);
+      upload(e.dataTransfer);
       e.dataTransfer.clearData();
     }
 
     setDragging(false);
   };
 
-  const uploadPlan = target => {
+  const upload = target => {
     const file = target === null || target === void 0 ? void 0 : target.files[0];
 
     if (file) {
-      if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel' || file.type === 'text/csv') {
-        if (file.size > 104857600) {
-          setError('Максимально допустимый размер файла не более 100Мб');
-        } else {
+      if (acceptFiles.includes(file.type)) {
+        if (file.size > fileSize) setError("\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 \u0444\u0430\u0439\u043B\u0430 \u043D\u0435 \u0431\u043E\u043B\u0435\u0435 ".concat(fileSize));else {
           setSelectedFile(file);
           callbackFile(file);
         }
-      } else {
-        setError('Не верный формат файла');
-      }
+      } else setError('Не верный формат файла');
     }
   };
 
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-    className: 'uploader',
+    className: (0, _clsx.default)('uploader', [...containerClasses]),
     children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
       className: (0, _clsx.default)('uploader__block', {
         'uploader__block_dragging': dragging
-      }),
+      }, [...blockClasses]),
       onClick: () => document.getElementById('input-file-uploader').click(),
       id: 'dropped-block',
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_microsoftExcel.ReactComponent, {
@@ -144,8 +146,8 @@ function FileDropper(_ref) {
       type: "file",
       className: 'd-none',
       id: 'input-file-uploader',
-      onChange: e => uploadPlan(e.target),
-      accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+      onChange: e => upload(e.target),
+      accept: acceptFiles
     })]
   });
 }
