@@ -12,6 +12,9 @@ function FileDropper({
 	 blockClasses = [],
 	 acceptFiles = '',
 	 fileSize = 104857600,
+	 fileIconComponent = undefined,
+	 validateSuccessIconComponent = undefined,
+	 validateWrongIconComponent = undefined
 }) {
 
 	const [dragging, setDragging] = useState(false);
@@ -72,7 +75,10 @@ function FileDropper({
 					setSelectedFile(file);
 					callbackFile(file);
 				}
-			} else setError('Не верный формат файла')
+			} else {
+				setError('Не верный формат файла')
+				setSelectedFile({});
+			}
 		}
 	}
 
@@ -83,7 +89,11 @@ function FileDropper({
 				onClick={() => document.getElementById('input-file-uploader').click()}
 				id={'dropped-block'}
 			>
-				<ExcelSvg width={40} height={40} fill={'#545454'}/>
+				{fileIconComponent
+					? fileIconComponent
+					: <ExcelSvg width={40} height={40} fill={'#545454'}/>
+				}
+
 				{(!selectedFile.name && !error) &&
 					(<p className={'mt-3'}>
 						Для загрузки файла кликните на выделенную
@@ -94,16 +104,22 @@ function FileDropper({
 					(<div>
 						<p><b>Имя: {selectedFile.name}</b></p>
 						<span className={'d-flex align-items-center justify-content-center mt-2'}>
-							<FileCheckSvg width={20} height={20} fill={'green'}/>
-							<p className={'ms-2'}><b>Валидный файл</b></p>
+							{ validateSuccessIconComponent
+								? validateSuccessIconComponent
+								: <FileCheckSvg width={20} height={20} fill={'green'}/>
+							}
+							<p className={'m-0 ms-2'}><b>Валидный файл</b></p>
 						</span>
 
 					</div>)
 				}
 				{error &&
 					<span className={'d-flex align-items-center justify-content-center mt-2'}>
-						<WrongFileSvg width={20} height={20} fill={'#bb2d3b'}/>
-						<p className={'ms-2'}><b>{error}</b></p>
+						{validateWrongIconComponent
+							? validateWrongIconComponent
+							: <WrongFileSvg width={20} height={20} fill={'#bb2d3b'}/>
+						}
+						<p className={'m-0 ms-2'}><b>{error}</b></p>
 					</span>
 				}
 			</div>
