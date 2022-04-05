@@ -1,10 +1,10 @@
 # File Dropper by Clunesate
-File upload form
+<b>React</b> file upload form
 
 ## Usage
 
 ### Install
-`npm install @clunesate/file-dropper@0.6.0`
+`npm install file-dropper`
 ### Connection
 1. Import library in your file <br>
 `import {FileDropper} from "@clunesate/file-dropper";`
