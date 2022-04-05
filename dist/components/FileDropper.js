@@ -31,7 +31,10 @@ function FileDropper(_ref) {
     containerClasses = [],
     blockClasses = [],
     acceptFiles = '',
-    fileSize = 104857600
+    fileSize = 104857600,
+    fileIconComponent = undefined,
+    validateSuccessIconComponent = undefined,
+    validateWrongIconComponent = undefined
   } = _ref;
   const [dragging, setDragging] = (0, _react.useState)(false);
   const [error, setError] = (0, _react.useState)('');
@@ -92,7 +95,10 @@ function FileDropper(_ref) {
           setSelectedFile(file);
           callbackFile(file);
         }
-      } else setError('Не верный формат файла');
+      } else {
+        setError('Не верный формат файла');
+        setSelectedFile({});
+      }
     }
   };
 
@@ -104,7 +110,7 @@ function FileDropper(_ref) {
       }, [...blockClasses]),
       onClick: () => document.getElementById('input-file-uploader').click(),
       id: 'dropped-block',
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_microsoftExcel.ReactComponent, {
+      children: [fileIconComponent ? fileIconComponent : /*#__PURE__*/(0, _jsxRuntime.jsx)(_microsoftExcel.ReactComponent, {
         width: 40,
         height: 40,
         fill: '#545454'
@@ -118,12 +124,12 @@ function FileDropper(_ref) {
           })
         }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
           className: 'd-flex align-items-center justify-content-center mt-2',
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_fileCheck.ReactComponent, {
+          children: [validateSuccessIconComponent ? validateSuccessIconComponent : /*#__PURE__*/(0, _jsxRuntime.jsx)(_fileCheck.ReactComponent, {
             width: 20,
             height: 20,
             fill: 'green'
           }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
-            className: 'ms-2',
+            className: 'm-0 ms-2',
             children: /*#__PURE__*/(0, _jsxRuntime.jsx)("b", {
               children: "\u0412\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u0430\u0439\u043B"
             })
@@ -131,12 +137,12 @@ function FileDropper(_ref) {
         })]
       }), error && /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
         className: 'd-flex align-items-center justify-content-center mt-2',
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_wrongFile.ReactComponent, {
+        children: [validateWrongIconComponent ? validateWrongIconComponent : /*#__PURE__*/(0, _jsxRuntime.jsx)(_wrongFile.ReactComponent, {
           width: 20,
           height: 20,
           fill: '#bb2d3b'
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
-          className: 'ms-2',
+          className: 'm-0 ms-2',
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("b", {
             children: error
           })
