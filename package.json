@@ -1,12 +1,14 @@
 {
   "name": "@clunesate/file-dropper",
   "description": "File upload form",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Clunesate",
   "private": false,
   "license": "ISC",
-  "main": "build/index.html",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -15,7 +17,8 @@
     "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.71.0"
   },
   "repository": {
     "url": "https://github.com/Clunesate/file-dropper"
@@ -24,7 +27,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "react-scripts build"
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
     "clsx": "^1.1.1",
     "node-sass": "^7.0.1"
   }

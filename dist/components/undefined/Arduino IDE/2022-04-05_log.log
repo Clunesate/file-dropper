@@ -1,0 +1,33 @@
+2022-04-05 13:10:12 Using browser-only version of superagent in non-browser environment
+2022-04-05 13:10:12 Configuring to accept webviews on '^.+\.webview\..+$' hostname.
+2022-04-05 13:10:12 root INFO Configuration directory URI: 'file:///home/clunesate/.theia'
+2022-04-05 13:10:12 root ERROR (node:17862) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2022-04-05 13:10:12 root INFO Theia app listening on http://localhost:44181.
+2022-04-05 13:10:12 root WARN The local plugin referenced by local-dir:/home/clunesate/.arduinoIDE/plugins does not exist.
+2022-04-05 13:10:12 root WARN The local plugin referenced by local-dir:/home/clunesate/.arduinoIDE/extensions does not exist.
+2022-04-05 13:10:12 root WARN The local plugin referenced by local-dir:/home/clunesate/.arduinoProIDE/plugins does not exist.
+2022-04-05 13:10:12 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-04-05 13:10:12 root INFO Resolved "cortex-debug" to a VS Code extension "cortex-debug@0.3.10" with engines:
+2022-04-05 13:10:12 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-04-05 13:10:12 root INFO Resolved "vscode-arduino-tools" to a VS Code extension "vscode-arduino-tools@0.0.2-beta.1" with engines:
+2022-04-05 13:10:12 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-04-05 13:10:12 root INFO Resolved "vscode-builtin-cpp" to a VS Code extension "cpp@1.52.1" with engines:
+2022-04-05 13:10:12 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-04-05 13:10:12 root INFO Resolved "vscode-builtin-json" to a VS Code extension "json@1.46.1" with engines:
+2022-04-05 13:10:12 root INFO PluginTheiaDirectoryHandler: accepting plugin with path
+2022-04-05 13:10:12 root INFO Resolved "vscode-builtin-json-language-features" to a VS Code extension "json-language-features@1.46.1" with engines:
+2022-04-05 13:10:12 root INFO Deploying backend plugin "cortex-debug@0.3.10" from "/home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/plugins/cortex-debug/extension/dist/extension"
+2022-04-05 13:10:12 root INFO Deploying backend plugin "vscode-arduino-tools@0.0.2-beta.1" from "/home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/plugins/vscode-arduino-tools/extension/dist/bundle"
+2022-04-05 13:10:12 root INFO Deploying backend plugin "cpp@1.52.1" from "/home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/plugins/vscode-builtin-cpp/extension"
+2022-04-05 13:10:12 root INFO Deploying backend plugin "json@1.46.1" from "/home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/plugins/vscode-builtin-json/extension"
+2022-04-05 13:10:12 root INFO Deploying backend plugin "json-language-features@1.46.1" from "/home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/plugins/vscode-builtin-json-language-features/extension/client/dist/jsonMain"
+2022-04-05 13:10:12 root INFO Deploy plugins list took: 47.7 ms
+2022-04-05 13:10:12 root WARN Backend ConfigServiceImpl.onStart is slow, took: 107.5 ms
+2022-04-05 13:10:12 daemon INFO Starting daemon from /home/clunesate/Документы/arduino-ide_2.0.0-rc2_Linux_64bit/resources/app/node_modules/arduino-ide-extension/build/arduino-cli...
+2022-04-05 13:10:12 root ERROR Could not start contribution
+2022-04-05 13:10:12 daemon INFO Using config file: /home/clunesate/.arduinoIDE/arduino-cli.yaml
+2022-04-05 13:10:12 daemon INFO arduino-cli version 0.20.2
+2022-04-05 13:10:12 daemon INFO Executing `arduino-cli daemon`
+2022-04-05 13:10:12 daemon INFO Setting up Prometheus metrics on :9090/metrics
+2022-04-05 13:10:12 daemon INFO {"IP":"127.0.0.1","Port":"38859"}
+2022-04-05 13:10:12 daemon INFO Daemon is running.
