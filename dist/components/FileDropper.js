@@ -25,6 +25,20 @@ var _jsxRuntime = require("react/jsx-runtime");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/*****************************************************************
+
+OUTPUT PARAMETERS:
+	callbackFile => Function that returns the selected file
+
+INPUT PARAMETERS:
+	containerClasses => Custom classes for the parent block
+	blockClasses => Custom classes for the form
+	acceptFiles => supported file types
+	fileSize => maximum allowed file size, default = 104857600
+	fileIconComponent => Main icon on the form
+	validateSuccessIconComponent => Icon for successful validation
+	validateWrongIconComponent => Icon for unsuccessful validation
+ *******************************************************************/
 function FileDropper(_ref) {
   let {
     callbackFile,
@@ -36,16 +50,21 @@ function FileDropper(_ref) {
     validateSuccessIconComponent = undefined,
     validateWrongIconComponent = undefined
   } = _ref;
-  const [dragging, setDragging] = (0, _react.useState)(false);
-  const [error, setError] = (0, _react.useState)('');
-  const [selectedFile, setSelectedFile] = (0, _react.useState)({});
+  const [dragging, setDragging] = (0, _react.useState)(false); // When dragging is active
+
+  const [error, setError] = (0, _react.useState)(''); // Error message
+
+  const [selectedFile, setSelectedFile] = (0, _react.useState)({}); // Clearly selected file
+  // Set event listeners on component load
+
   (0, _react.useEffect)(() => {
     const div = document.getElementById('dropped-block');
     div.addEventListener('dragenter', handleDragIn);
     div.addEventListener('dragleave', handleDragOut);
     div.addEventListener('dragover', handleDrag);
     div.addEventListener('drop', handleDrop);
-  });
+  }); // Removing event listeners when the component is unmounted
+
   (0, _react.useEffect)(() => {
     return () => {
       const div = document.getElementById('dropped-block');
@@ -84,7 +103,8 @@ function FileDropper(_ref) {
     }
 
     setDragging(false);
-  };
+  }; // Function for checking the validity of a file, as well as for returning it in callback
+
 
   const upload = target => {
     const file = target === null || target === void 0 ? void 0 : target.files[0];
@@ -93,6 +113,7 @@ function FileDropper(_ref) {
       if (acceptFiles.includes(file.type)) {
         if (file.size > fileSize) setError("\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 \u0444\u0430\u0439\u043B\u0430 \u043D\u0435 \u0431\u043E\u043B\u0435\u0435 ".concat(fileSize));else {
           setSelectedFile(file);
+          setError('');
           callbackFile(file);
         }
       } else {
