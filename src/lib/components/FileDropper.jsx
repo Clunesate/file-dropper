@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import clsx from "clsx";
+import '../scss/app.scss';
 
-import {ReactComponent as FileCheckSvg} from "../../images/file-check.svg";
-import {ReactComponent as WrongFileSvg} from "../../images/wrong-file.svg";
-import {ReactComponent as ExcelSvg} from "../../images/microsoft-excel.svg";
+import {ReactComponent as FileCheckSvg} from "../images/file-check.svg";
+import {ReactComponent as WrongFileSvg} from "../images/wrong-file.svg";
+import {ReactComponent as ExcelSvg} from "../images/microsoft-excel.svg";
 
 function FileDropper({callbackFile}) {
 
