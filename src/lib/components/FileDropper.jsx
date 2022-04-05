@@ -6,6 +6,21 @@ import {ReactComponent as FileCheckSvg} from "../images/file-check.svg";
 import {ReactComponent as WrongFileSvg} from "../images/wrong-file.svg";
 import {ReactComponent as ExcelSvg} from "../images/microsoft-excel.svg";
 
+/*****************************************************************
+
+OUTPUT PARAMETERS:
+	callbackFile => Function that returns the selected file
+
+INPUT PARAMETERS:
+	containerClasses => Custom classes for the parent block
+	blockClasses => Custom classes for the form
+	acceptFiles => supported file types
+	fileSize => maximum allowed file size, default = 104857600
+	fileIconComponent => Main icon on the form
+	validateSuccessIconComponent => Icon for successful validation
+	validateWrongIconComponent => Icon for unsuccessful validation
+ *******************************************************************/
+
 function FileDropper({
 	 callbackFile,
 	 containerClasses = [],
@@ -17,10 +32,11 @@ function FileDropper({
 	 validateWrongIconComponent = undefined
 }) {
 
-	const [dragging, setDragging] = useState(false);
-	const [error, setError] = useState('');
-	const [selectedFile, setSelectedFile] = useState({});
+	const [dragging, setDragging] = useState(false); // When dragging is active
+	const [error, setError] = useState(''); // Error message
+	const [selectedFile, setSelectedFile] = useState({}); // Clearly selected file
 
+	// Set event listeners on component load
 	useEffect(() => {
 		const div = document.getElementById('dropped-block');
 		div.addEventListener('dragenter', handleDragIn)
@@ -29,6 +45,7 @@ function FileDropper({
 		div.addEventListener('drop', handleDrop)
 	})
 
+	// Removing event listeners when the component is unmounted
 	useEffect(() => {
 		return () => {
 			const div = document.getElementById('dropped-block');
@@ -64,6 +81,7 @@ function FileDropper({
 		setDragging(false)
 	}
 
+	// Function for checking the validity of a file, as well as for returning it in callback
 	const upload = (target) => {
 		const file = target?.files[0];
 
@@ -73,6 +91,7 @@ function FileDropper({
 					setError(`Максимально допустимый размер файла не более ${fileSize}`);
 				else {
 					setSelectedFile(file);
+					setError('');
 					callbackFile(file);
 				}
 			} else {
